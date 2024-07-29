@@ -1,12 +1,32 @@
 package com.example.demo.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Repository;
+
 /**
  * DamageParameterModel
  */
+@Entity
+@Table(name = "tb_m_damage_parameter")
 public class DamageParameter {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column
   private Integer id;
+
+  @Column
   private String name;
+
+  @Column
   private Integer value;
+
+  @Column
   private String notes;
 
   

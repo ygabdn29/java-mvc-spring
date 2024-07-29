@@ -13,24 +13,24 @@ import javax.persistence.Table;
 @Table(name = "tb_tr_asset_detail")
 public class AssetDetail {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column
   private Integer id;
 
-  @Column
+  @Column(name = "componentName")
   private String componentName;
   
-  @Column
+  @Column(name = "componentPercentage")
   private Integer componentPercentage;
   
-  @Column
+  @Column(name= "isBroken")
   private Boolean isBroken;
   
   @ManyToOne
   @JoinColumn(name ="asset_id", referencedColumnName = "id")
   private Asset asset;
   
-  // public AssetDetail(){}
+  public AssetDetail(){}
 
   public AssetDetail(Integer id, String componentName, Integer componentPercentage, Boolean isBroken, Asset asset) {
     this.id = id;

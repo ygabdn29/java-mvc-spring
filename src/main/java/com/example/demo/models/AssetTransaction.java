@@ -20,19 +20,19 @@ public class AssetTransaction {
   private Integer id;
 
   
-  @Column
+  @Column(name = "requestSubmissiontime")
   private LocalDateTime requestSubmissionTime;
   
-  @Column
+  @Column(name = "outTime")
   private LocalDateTime outTime;
   
-  @Column
+  @Column(name = "returnTime")
   private LocalDateTime returnTime;
   
-  @Column
+  @Column(name = "isApprovedManager")
   private Boolean isApprovedManager;
   
-  @Column
+  @Column(name = "isApprovedAdmin")
   private Boolean isApprovedAdmin;
 
   @ManyToOne
@@ -48,7 +48,7 @@ public class AssetTransaction {
   @JoinColumn(name = "asset_id", referencedColumnName = "id")
   private Asset asset;
 
-  // public AssetTransaction(){}
+  public AssetTransaction(){}
 
   public AssetTransaction(Integer id, LocalDateTime requestSubmissionTime, LocalDateTime outTime,
       LocalDateTime returnTime, Boolean isApprovedManager, Boolean isApprovedAdmin, User user, User admin,

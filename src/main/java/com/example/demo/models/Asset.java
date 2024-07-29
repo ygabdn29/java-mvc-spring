@@ -18,15 +18,15 @@ import javax.persistence.Table;
 @Table(name ="tb_m_asset")
 public class Asset {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column
   private Integer id;
 
   @Column
   private String name;
 
-  @Column
-  private Integer damageLevel;
+  @Column(name ="damageLevel")
+  private String damageLevel;
 
   // private Integer assetTypeId;
   @ManyToOne
@@ -35,7 +35,7 @@ public class Asset {
 
   // private Integer assetStatusId;
   @ManyToOne
-  @JoinColumn(name = "assset_status_id", referencedColumnName = "id")
+  @JoinColumn(name = "asset_status_id", referencedColumnName = "id")
   private AssetStatus assetStatus;
 
   @OneToMany(mappedBy = "asset")
@@ -46,9 +46,9 @@ public class Asset {
   // @JsonIgnore
   private List<AssetTransaction> assetTransactions;
 
-  // public Asset(){}
+  public Asset(){}
 
-  public Asset(Integer id, String name, Integer damageLevel, AssetType assetType, AssetStatus assetStatus,
+  public Asset(Integer id, String name, String damageLevel, AssetType assetType, AssetStatus assetStatus,
       List<AssetDetail> assetDetails, List<AssetTransaction> assetTransactions) {
     this.id = id;
     this.name = name;
@@ -75,11 +75,11 @@ public class Asset {
     this.name = name;
   }
 
-  public Integer getDamageLevel() {
+  public String getDamageLevel() {
     return damageLevel;
   }
 
-  public void setDamageLevel(Integer damageLevel) {
+  public void setDamageLevel(String damageLevel) {
     this.damageLevel = damageLevel;
   }
 
