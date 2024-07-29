@@ -3,11 +3,11 @@ package com.example.demo.models;
 /**
  * AssetTypeModel
  */
-public class AssetTypeModel {
+public class AssetType {
   private Integer id;
   private String type;
 
-  public AssetTypeModel(Integer id, String type) {
+  public AssetType(Integer id, String type) {
     this.id = id;
     this.type = type;
   }

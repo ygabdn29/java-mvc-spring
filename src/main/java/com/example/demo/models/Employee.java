@@ -3,7 +3,7 @@ package com.example.demo.models;
 /**
  * EmployeeModel
  */
-public class EmployeeModel {
+public class Employee {
   private Integer id;
   private String name;
   private String dob;
@@ -11,12 +11,12 @@ public class EmployeeModel {
   private String email;
   private String phone;
   private String address;
-  private Integer department_id; 
-  private Integer role_id;
-  private Integer employee_manager_id;
+  private Integer departmentId; 
+  private Integer roleId;
+  private Integer employeeManagerId;
   
-  public EmployeeModel(Integer id, String name, String dob, String gender, String email, String phone, String address,
-      Integer department_id, Integer role_id, Integer employee_manager_id) {
+  public Employee(Integer id, String name, String dob, String gender, String email, String phone, String address,
+      Integer departmentId, Integer roleId, Integer employeeManagerId) {
     this.id = id;
     this.name = name;
     this.dob = dob;
@@ -24,9 +24,9 @@ public class EmployeeModel {
     this.email = email;
     this.phone = phone;
     this.address = address;
-    this.department_id = department_id;
-    this.role_id = role_id;
-    this.employee_manager_id = employee_manager_id;
+    this.departmentId = departmentId;
+    this.roleId = roleId;
+    this.employeeManagerId = employeeManagerId;
   }
 
   public Integer getId() {
@@ -85,29 +85,31 @@ public class EmployeeModel {
     this.address = address;
   }
 
-  public Integer getDepartment_id() {
-    return department_id;
+  public Integer getDepartmentId() {
+    return departmentId;
   }
 
-  public void setDepartment_id(Integer department_id) {
-    this.department_id = department_id;
+  public void setDepartmentId(Integer departmentId) {
+    this.departmentId = departmentId;
   }
 
-  public Integer getRole_id() {
-    return role_id;
+  public Integer getRoleId() {
+    return roleId;
   }
 
-  public void setRole_id(Integer role_id) {
-    this.role_id = role_id;
+  public void setRoleId(Integer roleId) {
+    this.roleId = roleId;
   }
 
-  public Integer getEmployee_manager_id() {
-    return employee_manager_id;
+  public Integer getEmployeeManagerId() {
+    return employeeManagerId;
   }
 
-  public void setEmployee_manager_id(Integer employee_manager_id) {
-    this.employee_manager_id = employee_manager_id;
+  public void setEmployeeManagerId(Integer employeeManagerId) {
+    this.employeeManagerId = employeeManagerId;
   }
+  
+  
   
   
 }

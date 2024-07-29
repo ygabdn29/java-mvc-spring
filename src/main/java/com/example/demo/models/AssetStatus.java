@@ -3,12 +3,12 @@ package com.example.demo.models;
 /**
  * AssetStatusModel
  */
-public class AssetStatusModel {
+public class AssetStatus {
   private Integer id;
   private String status;
 
   
-  public AssetStatusModel(Integer id, String status) {
+  public AssetStatus(Integer id, String status) {
     this.id = id;
     this.status = status;
   }

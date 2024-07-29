@@ -1,19 +1,18 @@
 package com.example.demo.models;
 
-public class AssetDetailModel {
+public class AssetDetail {
   private Integer id;
   private String componentName;
   private Integer componentPercentage;
-  private boolean isBroken;
-  private Integer asset_id;
+  private Boolean isBroken;
+  private Integer assetId;
   
-  public AssetDetailModel(Integer id, String componentName, Integer componentPercentage, boolean isBroken,
-      Integer asset_id) {
+  public AssetDetail(Integer id, String componentName, Integer componentPercentage, Boolean isBroken, Integer assetId) {
     this.id = id;
     this.componentName = componentName;
     this.componentPercentage = componentPercentage;
     this.isBroken = isBroken;
-    this.asset_id = asset_id;
+    this.assetId = assetId;
   }
 
   public Integer getId() {
@@ -40,21 +39,23 @@ public class AssetDetailModel {
     this.componentPercentage = componentPercentage;
   }
 
-  public boolean isBroken() {
+  public Boolean getIsBroken() {
     return isBroken;
   }
 
-  public void setBroken(boolean isBroken) {
+  public void setIsBroken(Boolean isBroken) {
     this.isBroken = isBroken;
   }
 
-  public Integer getAsset_id() {
-    return asset_id;
+  public Integer getAssetId() {
+    return assetId;
   }
 
-  public void setAsset_id(Integer asset_id) {
-    this.asset_id = asset_id;
+  public void setAssetId(Integer assetId) {
+    this.assetId = assetId;
   }
+  
+  
 
   
 }

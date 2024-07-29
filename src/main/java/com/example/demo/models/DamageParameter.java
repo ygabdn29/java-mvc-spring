@@ -3,14 +3,14 @@ package com.example.demo.models;
 /**
  * DamageParameterModel
  */
-public class DamageParameterModel {
+public class DamageParameter {
   private Integer id;
   private String name;
   private Integer value;
   private String notes;
 
   
-  public DamageParameterModel(Integer id, String name, Integer value, String notes) {
+  public DamageParameter(Integer id, String name, Integer value, String notes) {
     this.id = id;
     this.name = name;
     this.value = value;

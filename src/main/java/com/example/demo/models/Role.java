@@ -1,13 +1,13 @@
 package com.example.demo.models;
 
 /**
- * DepartmentModel
+ * RoleModel
  */
-public class DepartmentModel {
+public class Role {
   private Integer id;
   private String name;
   
-  public DepartmentModel(Integer id, String name) {
+  public Role(Integer id, String name) {
     this.id = id;
     this.name = name;
   }
@@ -28,4 +28,6 @@ public class DepartmentModel {
     this.name = name;
   }
 
+  
+  
 }

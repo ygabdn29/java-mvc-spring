@@ -3,17 +3,17 @@ package com.example.demo.models;
 /**
  * UserModel
  */
-public class UserModel {
+public class User {
   private Integer id;
   private String username;
   private String password;
-  private Integer employee_id;
-  
-  public UserModel(Integer id, String username, String password, Integer employee_id) {
+  private Integer employeeId;
+
+  public User(Integer id, String username, String password, Integer employeeId) {
     this.id = id;
     this.username = username;
     this.password = password;
-    this.employee_id = employee_id;
+    this.employeeId = employeeId;
   }
 
   public Integer getId() {
@@ -40,11 +40,13 @@ public class UserModel {
     this.password = password;
   }
 
-  public Integer getEmployee_id() {
-    return employee_id;
+  public Integer getEmployeeId() {
+    return employeeId;
   }
 
-  public void setEmployee_id(Integer employee_id) {
-    this.employee_id = employee_id;
+  public void setEmployeeId(Integer employeeId) {
+    this.employeeId = employeeId;
   }
+  
+  
 }
