@@ -30,6 +30,8 @@ public class AssetType {
   // @JsonIgnore
   private List<Asset> assets;
 
+  // public AssetType(){}
+
   public AssetType(Integer id, String type, List<Asset> assets) {
     this.id = id;
     this.type = type;

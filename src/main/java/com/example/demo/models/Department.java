@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Table(name = "tb_m_department")
 public class Department {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column
   private Integer id;
 
@@ -29,6 +29,8 @@ public class Department {
   @OneToMany(mappedBy = "department")
   // @JsonIgnore
   private List<Employee> employees;
+  
+  public Department() {}
 
   public Department(Integer id, String name, List<Employee> employees) {
     this.id = id;

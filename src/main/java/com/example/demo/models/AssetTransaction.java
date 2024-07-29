@@ -48,6 +48,8 @@ public class AssetTransaction {
   @JoinColumn(name = "asset_id", referencedColumnName = "id")
   private Asset asset;
 
+  // public AssetTransaction(){}
+
   public AssetTransaction(Integer id, LocalDateTime requestSubmissionTime, LocalDateTime outTime,
       LocalDateTime returnTime, Boolean isApprovedManager, Boolean isApprovedAdmin, User user, User admin,
       Asset asset) {

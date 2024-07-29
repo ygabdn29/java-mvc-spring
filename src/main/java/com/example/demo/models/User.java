@@ -40,6 +40,8 @@ public class User {
   // @JsonIgnore
   private List<AssetTransaction> assetTransactions;
 
+  // public User(){}
+
   public User(Integer id, String username, String password, Employee employee,
       List<AssetTransaction> assetTransactions) {
     this.id = id;

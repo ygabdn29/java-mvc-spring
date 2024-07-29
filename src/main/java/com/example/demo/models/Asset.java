@@ -46,6 +46,8 @@ public class Asset {
   // @JsonIgnore
   private List<AssetTransaction> assetTransactions;
 
+  // public Asset(){}
+
   public Asset(Integer id, String name, Integer damageLevel, AssetType assetType, AssetStatus assetStatus,
       List<AssetDetail> assetDetails, List<AssetTransaction> assetTransactions) {
     this.id = id;

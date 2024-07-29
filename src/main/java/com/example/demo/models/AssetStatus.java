@@ -32,6 +32,7 @@ public class AssetStatus {
   // @JsonIgnore
   private List<Asset> assets;
 
+  // public AssetStatus(){}
 
   public AssetStatus(Integer id, String status, List<Asset> assets) {
     this.id = id;

@@ -30,6 +30,7 @@ public class AssetDetail {
   @JoinColumn(name ="asset_id", referencedColumnName = "id")
   private Asset asset;
   
+  // public AssetDetail(){}
 
   public AssetDetail(Integer id, String componentName, Integer componentPercentage, Boolean isBroken, Asset asset) {
     this.id = id;

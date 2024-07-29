@@ -30,6 +30,8 @@ public class Role {
   // @JsonIgnore
   private List<Employee> employees;
 
+  public Role(){}
+
   public Role(Integer id, String name, List<Employee> employees) {
     this.id = id;
     this.name = name;

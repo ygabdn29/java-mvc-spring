@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table(name = "tb_m_employee")
 public class Employee {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column
   private Integer id;
   
@@ -49,10 +49,12 @@ public class Employee {
 
   @OneToOne
   @JoinColumn(name = "employee_manager_id", referencedColumnName = "id")
-  private Employee employee;
+  private Employee employeeManager;
+
+  public Employee(){}
 
   public Employee(Integer id, String name, String dob, String gender, String email, String phone, String address,
-      Department department, Role role, Employee employee) {
+      Department department, Role role, Employee employeeManager) {
     this.id = id;
     this.name = name;
     this.dob = dob;
@@ -62,7 +64,7 @@ public class Employee {
     this.address = address;
     this.department = department;
     this.role = role;
-    this.employee = employee;
+    this.employeeManager = employeeManager;
   }
 
   public Integer getId() {
@@ -137,12 +139,14 @@ public class Employee {
     this.role = role;
   }
 
-  public Employee getEmployee() {
-    return employee;
+  public Employee getEmployeeManager() {
+    return employeeManager;
   }
 
-  public void setEmployee(Employee employee) {
-    this.employee = employee;
+  public void setEmployeeManager(Employee employeeManager) {
+    this.employeeManager = employeeManager;
   }
+
+  
   
 }
