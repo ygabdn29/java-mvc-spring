@@ -1,19 +1,44 @@
 package com.example.demo.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_tr_asset_detail")
 public class AssetDetail {
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column
   private Integer id;
+
+  @Column
   private String componentName;
-  private Integer componentPercentage;
-  private Boolean isBroken;
-  private Integer assetId;
   
-  public AssetDetail(Integer id, String componentName, Integer componentPercentage, Boolean isBroken, Integer assetId) {
+  @Column
+  private Integer componentPercentage;
+  
+  @Column
+  private Boolean isBroken;
+  
+  @ManyToOne
+  @JoinColumn(name ="asset_id", referencedColumnName = "id")
+  private Asset asset;
+  
+
+  public AssetDetail(Integer id, String componentName, Integer componentPercentage, Boolean isBroken, Asset asset) {
     this.id = id;
     this.componentName = componentName;
     this.componentPercentage = componentPercentage;
     this.isBroken = isBroken;
-    this.assetId = assetId;
+    this.asset = asset;
   }
+
 
   public Integer getId() {
     return id;
@@ -47,15 +72,12 @@ public class AssetDetail {
     this.isBroken = isBroken;
   }
 
-  public Integer getAssetId() {
-    return assetId;
+  public Asset getAsset() {
+    return asset;
   }
 
-  public void setAssetId(Integer assetId) {
-    this.assetId = assetId;
+  public void setAsset(Asset asset) {
+    this.asset = asset;
   }
-  
-  
-
   
 }

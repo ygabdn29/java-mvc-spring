@@ -1,19 +1,52 @@
 package com.example.demo.models;
 
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+// import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * UserModel
  */
-public class User {
-  private Integer id;
-  private String username;
-  private String password;
-  private Integer employeeId;
 
-  public User(Integer id, String username, String password, Integer employeeId) {
+@Entity
+@Table(name = "tb_m_user")
+public class User {
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column
+  private Integer id;
+  
+  @Column
+  private String username;
+  
+  @Column
+  private String password;
+
+  @OneToOne
+  @JoinColumn(name = "employee_id", referencedColumnName = "id")
+  private Employee employee;
+
+  @OneToMany(mappedBy = "user")
+  // @JsonIgnore
+  private List<AssetTransaction> assetTransactions;
+
+  public User(Integer id, String username, String password, Employee employee,
+      List<AssetTransaction> assetTransactions) {
     this.id = id;
     this.username = username;
     this.password = password;
-    this.employeeId = employeeId;
+    this.employee = employee;
+    this.assetTransactions = assetTransactions;
   }
 
   public Integer getId() {
@@ -40,13 +73,20 @@ public class User {
     this.password = password;
   }
 
-  public Integer getEmployeeId() {
-    return employeeId;
+  public Employee getEmployee() {
+    return employee;
   }
 
-  public void setEmployeeId(Integer employeeId) {
-    this.employeeId = employeeId;
+  public void setEmployee(Employee employee) {
+    this.employee = employee;
   }
-  
-  
+
+  public List<AssetTransaction> getAssetTransactions() {
+    return assetTransactions;
+  }
+
+  public void setAssetTransactions(List<AssetTransaction> assetTransactions) {
+    this.assetTransactions = assetTransactions;
+  }
+
 }

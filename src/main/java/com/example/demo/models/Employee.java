@@ -1,22 +1,58 @@
 package com.example.demo.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 /**
  * EmployeeModel
  */
+@Entity
+@Table(name = "tb_m_employee")
 public class Employee {
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column
   private Integer id;
-  private String name;
-  private String dob;
-  private String gender;
-  private String email;
-  private String phone;
-  private String address;
-  private Integer departmentId; 
-  private Integer roleId;
-  private Integer employeeManagerId;
   
+  @Column
+  private String name;
+  
+  @Column
+  private String dob;
+  
+  @Column
+  private String gender;
+  
+  @Column
+  private String email;
+  
+  @Column
+  private String phone;
+  
+  @Column
+  private String address;
+
+  @ManyToOne
+  @JoinColumn(name = "department_id", referencedColumnName = "id")
+  private Department department; 
+
+  @ManyToOne
+  @JoinColumn(name = "role_id", referencedColumnName = "id")
+  private Role role;
+
+  @OneToOne
+  @JoinColumn(name = "employee_manager_id", referencedColumnName = "id")
+  private Employee employee;
+
   public Employee(Integer id, String name, String dob, String gender, String email, String phone, String address,
-      Integer departmentId, Integer roleId, Integer employeeManagerId) {
+      Department department, Role role, Employee employee) {
     this.id = id;
     this.name = name;
     this.dob = dob;
@@ -24,9 +60,9 @@ public class Employee {
     this.email = email;
     this.phone = phone;
     this.address = address;
-    this.departmentId = departmentId;
-    this.roleId = roleId;
-    this.employeeManagerId = employeeManagerId;
+    this.department = department;
+    this.role = role;
+    this.employee = employee;
   }
 
   public Integer getId() {
@@ -85,31 +121,28 @@ public class Employee {
     this.address = address;
   }
 
-  public Integer getDepartmentId() {
-    return departmentId;
+  public Department getDepartment() {
+    return department;
   }
 
-  public void setDepartmentId(Integer departmentId) {
-    this.departmentId = departmentId;
+  public void setDepartment(Department department) {
+    this.department = department;
   }
 
-  public Integer getRoleId() {
-    return roleId;
+  public Role getRole() {
+    return role;
   }
 
-  public void setRoleId(Integer roleId) {
-    this.roleId = roleId;
+  public void setRole(Role role) {
+    this.role = role;
   }
 
-  public Integer getEmployeeManagerId() {
-    return employeeManagerId;
+  public Employee getEmployee() {
+    return employee;
   }
 
-  public void setEmployeeManagerId(Integer employeeManagerId) {
-    this.employeeManagerId = employeeManagerId;
+  public void setEmployee(Employee employee) {
+    this.employee = employee;
   }
-  
-  
-  
   
 }

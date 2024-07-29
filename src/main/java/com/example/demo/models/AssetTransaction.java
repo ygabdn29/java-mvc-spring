@@ -2,29 +2,64 @@ package com.example.demo.models;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_tr_asset_transaction")
 public class AssetTransaction {
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column
   private Integer id;
+
+  
+  @Column
   private LocalDateTime requestSubmissionTime;
+  
+  @Column
   private LocalDateTime outTime;
+  
+  @Column
   private LocalDateTime returnTime;
+  
+  @Column
   private Boolean isApprovedManager;
+  
+  @Column
   private Boolean isApprovedAdmin;
-  private Integer userId;
-  private Integer adminId;
-  private Integer assetId;
+
+  @ManyToOne
+  @JoinColumn(name = "user_id", referencedColumnName = "id")
+  private User user;
+  // private Integer userId;
+
+  @ManyToOne
+  @JoinColumn(name = "admin_id", referencedColumnName = "id")
+  private User admin;
+
+  @ManyToOne
+  @JoinColumn(name = "asset_id", referencedColumnName = "id")
+  private Asset asset;
 
   public AssetTransaction(Integer id, LocalDateTime requestSubmissionTime, LocalDateTime outTime,
-      LocalDateTime returnTime, Boolean isApprovedManager, Boolean isApprovedAdmin, Integer userId, Integer adminId,
-      Integer assetId) {
+      LocalDateTime returnTime, Boolean isApprovedManager, Boolean isApprovedAdmin, User user, User admin,
+      Asset asset) {
     this.id = id;
     this.requestSubmissionTime = requestSubmissionTime;
     this.outTime = outTime;
     this.returnTime = returnTime;
     this.isApprovedManager = isApprovedManager;
     this.isApprovedAdmin = isApprovedAdmin;
-    this.userId = userId;
-    this.adminId = adminId;
-    this.assetId = assetId;
+    this.user = user;
+    this.admin = admin;
+    this.asset = asset;
   }
 
   public Integer getId() {
@@ -75,33 +110,28 @@ public class AssetTransaction {
     this.isApprovedAdmin = isApprovedAdmin;
   }
 
-  public Integer getUserId() {
-    return userId;
+  public User getUser() {
+    return user;
   }
 
-  public void setUserId(Integer userId) {
-    this.userId = userId;
+  public void setUser(User user) {
+    this.user = user;
   }
 
-  public Integer getAdminId() {
-    return adminId;
+  public User getAdmin() {
+    return admin;
   }
 
-  public void setAdminId(Integer adminId) {
-    this.adminId = adminId;
+  public void setAdmin(User admin) {
+    this.admin = admin;
   }
 
-  public Integer getAssetId() {
-    return assetId;
+  public Asset getAsset() {
+    return asset;
   }
 
-  public void setAssetId(Integer assetId) {
-    this.assetId = assetId;
+  public void setAsset(Asset asset) {
+    this.asset = asset;
   }
-  
-  
- 
 
-  
-  
 }
