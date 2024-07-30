@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @Table(name = "tb_m_asset_status")
 public class AssetStatus {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column
   private Integer id;
 

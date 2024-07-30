@@ -25,7 +25,7 @@ public class Asset {
   @Column
   private String name;
 
-  @Column(name ="damageLevel")
+  @Column(name = "damage_level")
   private String damageLevel;
 
   // private Integer assetTypeId;
@@ -115,5 +115,4 @@ public class Asset {
     this.assetTransactions = assetTransactions;
   }
 
-  
 }

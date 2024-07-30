@@ -17,13 +17,13 @@ public class AssetDetail {
   @Column
   private Integer id;
 
-  @Column(name = "componentName")
+  @Column(name = "component_name")
   private String componentName;
   
-  @Column(name = "componentPercentage")
+  @Column(name = "component_percentage")
   private Integer componentPercentage;
   
-  @Column(name= "isBroken")
+  @Column(name= "is_broken")
   private Boolean isBroken;
   
   @ManyToOne

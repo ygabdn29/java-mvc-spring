@@ -22,7 +22,7 @@ import javax.persistence.Table;
 @Table(name = "tb_m_user")
 public class User {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column
   private Integer id;
   
@@ -40,7 +40,7 @@ public class User {
   // @JsonIgnore
   private List<AssetTransaction> assetTransactions;
 
-  // public User(){}
+  public User(){}
 
   public User(Integer id, String username, String password, Employee employee,
       List<AssetTransaction> assetTransactions) {

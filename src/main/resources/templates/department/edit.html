@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Department</title>
+  </head>
+  <body>
+    <h1 style="color: brown">EDIT DEPARTMENT</h1>
+    <form
+      method="post"
+      th:action="@{/department/save}"
+      th:object="${department}"
+    >
+      <input
+        readonly
+        hidden
+        th:field="*{id}"
+        value="${department.id}"
+        width=""
+      />
+      <input th:field="*{name}" type="text" placeholder="${department.name}" />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

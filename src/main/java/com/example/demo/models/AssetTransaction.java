@@ -15,24 +15,24 @@ import javax.persistence.Table;
 @Table(name = "tb_tr_asset_transaction")
 public class AssetTransaction {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column
   private Integer id;
 
   
-  @Column(name = "requestSubmissiontime")
+  @Column(name = "request_submission_time")
   private LocalDateTime requestSubmissionTime;
   
-  @Column(name = "outTime")
+  @Column(name = "out_time")
   private LocalDateTime outTime;
   
-  @Column(name = "returnTime")
+  @Column(name = "return_time")
   private LocalDateTime returnTime;
   
-  @Column(name = "isApprovedManager")
+  @Column(name = "is_approved_manager")
   private Boolean isApprovedManager;
   
-  @Column(name = "isApprovedAdmin")
+  @Column(name = "is_approved_admin")
   private Boolean isApprovedAdmin;
 
   @ManyToOne
