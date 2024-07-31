@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Employee</title>
+  </head>
+  <body>
+    <h1>EDIT EMPLOYEE</h1>
+
+    <form th:action="@{/employee/save}" th:object="${employee}" method="post">
+      <input type="hidden" th:field="*{id}" value="${employee.id}">
+
+      <label for="name">Update Name: </label>
+      <input type="text" th:field="*{name}" placeholder="${employee.name}" id="name" />
+
+      <label for="department">Update Department: </label>
+      <select th:field="*{department}">
+        <option
+          th:each="department : ${departments}"
+          th:value="${department.id}"
+          th:text="${department.name}"
+        ></option>
+      </select>
+
+      <label for="role">Update Role: </label>
+      <select th:field="*{role}" id="role">
+        <option
+          th:each="role : ${roles}"
+          th:value="${role.id}"
+          th:text="${role.name}"
+        ></option>
+      </select>
+
+      <label for="manager">Update Manager: </label>
+      <select th:field="*{employeeManager}" id="manager">
+        <option
+          th:each="manager : ${managers}"
+          th:value="${manager.id}"
+          th:text="${manager.name}"
+        ></option>
+      </select>
+
+      <label for="dob">Update Date of Birth: </label>
+      <input type="text" th:field="*{dob}" placeholder="${employee.dob}" id="dob" />
+
+      <label for="gender">Update Gender: </label>
+      <input
+        type="text"
+        th:field="*{gender}"
+        placeholder="${employee.gender}"
+        id="gender"
+      />
+
+      <label for="email">Update Email: </label>
+      <input type="text" th:field="*{email}" placeholder="${employee.email}" id="email" />
+
+      <label for="phone">Update Phone Number: </label>
+      <input
+        type="text"
+        th:field="*{phone}"
+        placeholder="${employee.phone}"
+        id="phone"
+      />
+
+      <label for="address">Update Address: </label>
+      <input
+        type="text"
+        th:field="*{address}"
+        placeholder="${employee.address}"
+        id="address"
+      />
+
+      <button type="submit">Submit</button>
+  </body>
+</html>

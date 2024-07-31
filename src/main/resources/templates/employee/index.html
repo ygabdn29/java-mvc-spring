@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Module</title>
+  </head>
+  <body>
+    <a th:href="@{create}">+ Add New Employee</a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Role</th>
+          <th>Employee Manager</th>
+          <th>DOB</th>
+          <th>Gender</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr th:each="employee : ${employees}">
+          <td th:text="${employee.id}"></td>
+          <td th:text="${employee.name}"></td>
+          <td th:text="${employee.department.getName()}"></td>
+          <td
+            th:text="${employee.role != null ? employee.role.getName() : 'No Role Assigned'}"
+          ></td>
+          <td
+            th:text="${employee.employeeManager != null ? employee.employeeManager.getName() : 'No Manager Assigned'}"
+          ></td>
+          <td th:text="${employee.dob}"></td>
+          <td th:text="${employee.gender}"></td>
+          <td th:text="${employee.email}"></td>
+          <td th:text="${employee.phone}"></td>
+          <td th:text="${employee.address}"></td>
+          <td>
+            <a th:href="@{/employee/{id}/update(id=${employee.id})}">EDIT</a>
+            |
+            <form
+              th:action="@{/employee/{id}/delete(id=${employee.id})}"
+              method="post"
+            >
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
