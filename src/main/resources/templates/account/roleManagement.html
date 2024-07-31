@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Role Management</title>
+  </head>
+  <body>
+    <h1>ROLE MANAGEMENT</h1>
+
+    <!-- <a th:href="">Edit Employee Roles</a> -->
+    <a th:href="@{role/create}">+ Add New Roles</a>
+    <a th:href="@{role/employees}">+ Update Employee Roles</a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Role Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="role : ${roles}">
+          <td th:text="${role.id}"></td>
+          <td th:text="${role.name}"></td>
+          <td>
+            <a th:href="@{role/{id}/update(id=${role.id})}">Edit</a>
+            |
+            <form
+              th:action="@{/account/role/{id}/delete(id=${role.id})}"
+              method="post"
+            >
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

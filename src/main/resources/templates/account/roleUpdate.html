@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Role</title>
+  </head>
+  <body>
+    <h1>Update Role Detail</h1>
+
+    <form th:action="@{/account/role/save}" method="post" th:object="${role}">
+      <input type="hidden" th:field="*{id}" value="${role.id}" />
+
+      <label for="name">Update Role Name: </label>
+      <input
+        type="text"
+        th:field="*{name}"
+        id="name"
+        placeholder="${role.name}"
+      />
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

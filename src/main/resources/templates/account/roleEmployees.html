@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employees Role</title>
+  </head>
+  <body>
+    <h1>Employess Role</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Role</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr th:each="employee : ${employees}">
+          <td th:text="${employee.id}"></td>
+          <td th:text="${employee.name}"></td>
+          <td
+            th:text="${employee.department != null ? employee.department.getName() : 'No Role Assigned'}"
+          ></td>
+          <td
+            th:text="${employee.role != null ? employee.role.getName() : 'No Role Assigned'}"
+          ></td>
+          <td>
+            <a
+              th:href="@{/account/role/employees/{id}/update(id=${employee.id})}"
+              >Edit</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

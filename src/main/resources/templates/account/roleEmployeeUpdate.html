@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Employee Role</title>
+  </head>
+  <body>
+    <h1>Update Employee Role</h1>
+
+    <form th:action="@{/employee/save}" method="post" th:object="${employee}">
+      <input type="hidden" th:field="*{id}" value="${employee.id}" />
+
+      <label for="name">Employee Name: </label>
+      <input
+        disabled
+        type="text"
+        th:field="*{name}"
+        th:value="${employee.name}"
+        id="name"
+      />
+
+      <label for="department">Department: </label>
+      <input
+        disabled
+        type="text"
+        id="department"
+        th:value="${employee.department.getName()}"
+      />
+      <input
+        hidden
+        th:field="*{department}"
+        th:value="${employee.department}"
+      />
+
+      <label for="role">Update Role: </label>
+      <select th:field="*{role}" id="role">
+        <option
+          th:each="role : ${roles}"
+          th:value="${role.id}"
+          th:text="${role.name}"
+        ></option>
+      </select>
+
+      <input
+        hidden="*{employeeManager}"
+        id="manager"
+        th:value="${employee.employeeManager}"
+      />
+
+      <input
+        hidden
+        type="text"
+        th:field="*{dob}"
+        th:value="${employee.dob}"
+        id="dob"
+      />
+
+      <input
+        hidden
+        type="text"
+        th:field="*{gender}"
+        th:value="${employee.gender}"
+        id="gender"
+      />
+
+      <input
+        hidden
+        type="text"
+        th:field="*{email}"
+        th:value="${employee.email}"
+        id="email"
+      />
+
+      <input
+        hidden
+        type="text"
+        th:field="*{phone}"
+        th:value="${employee.phone}"
+        id="phone"
+      />
+
+      <input
+        hidden
+        type="text"
+        th:field="*{address}"
+        th:value="${employee.address}"
+        id="address"
+      />
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
